@@ -1,3 +1,5 @@
+A fork of Niagara targeting macOS support and automatic shader compilation through CMake custom targets. While this compiles, it will not run because MoltenVK does not yet support Vulkan 1.1.  
+
 # Niagara
 
 This is a Vulkan renderer that is written on stream from scratch - without using any third party code that is Vulkan specific. We are using non-Vulkan-specific third party libraries however.

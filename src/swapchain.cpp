@@ -18,6 +18,13 @@ VkSurfaceKHR createSurface(VkInstance instance, GLFWwindow* window)
 	VkSurfaceKHR surface = 0;
 	VK_CHECK(vkCreateWin32SurfaceKHR(instance, &createInfo, 0, &surface));
 	return surface;
+#elif defined(VK_USE_PLATFORM_MACOS_MVK)
+    VkMacOSSurfaceCreateInfoMVK createInfo = { VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK };
+    createInfo.pView = glfwGetCocoaWindow(window);
+
+    VkSurfaceKHR surface = 0;
+    VK_CHECK(glfwCreateWindowSurface(instance, window, 0, &surface));
+    return surface;
 #else
 #error Unsupported platform
 #endif
