@@ -135,7 +135,7 @@ VkPhysicalDevice pickPhysicalDevice(VkPhysicalDevice* physicalDevices, uint32_t 
 		if (!supportsPresentation(physicalDevices[i], familyIndex))
 			continue;
 
-		if (props.apiVersion < VK_API_VERSION_1_2)
+		if (props.apiVersion < VK_API_VERSION_1_0)
 			continue;
 
 		if (!preferred && props.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU)
@@ -191,9 +191,9 @@ VkDevice createDevice(VkInstance instance, VkPhysicalDevice physicalDevice, uint
 
 	VkPhysicalDeviceFeatures2 features = { VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2 };
 	features.features.multiDrawIndirect = true;
-	features.features.pipelineStatisticsQuery = true;
+//	features.features.pipelineStatisticsQuery = true;
 	features.features.shaderInt16 = true;
-	features.features.shaderInt64 = true;
+//	features.features.shaderInt64 = true;
 
 	VkPhysicalDeviceVulkan12Features features12 = { VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES };
 	features12.drawIndirectCount = true;
